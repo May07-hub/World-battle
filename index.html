@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>World Battle — Let the World Decide</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-mark">⚖</div>
+
+            <div>
+                <div class="brand-name">WORLD BATTLE</div>
+                <div class="brand-tagline">LET THE WORLD DECIDE.</div>
+            </div>
+        </div>
+
+        <nav>
+            <button class="nav-btn active" onclick="showPage('home')">
+                Battles
+            </button>
+
+            <button class="nav-btn" onclick="showPage('archive')">
+                Verdict Archive
+            </button>
+
+            <button class="nav-btn" onclick="showPage('about')">
+                The Court
+            </button>
+        </nav>
+
+        <button class="profile-button" onclick="showProfile()">
+            <span>●</span>
+            Voter
+        </button>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- HOME -->
+        <section id="homePage" class="page active-page">
+
+            <section class="hero">
+
+                <div class="hero-badge">
+                    ● LIVE WORLDWIDE BATTLES
+                </div>
+
+                <h1>
+                    THE WORLD
+                    <span>HAS A SAY.</span>
+                </h1>
+
+                <p>
+                    One question. Two sides. Seven days.
+                    Then the world delivers its verdict.
+                </p>
+
+                <button class="primary-button" onclick="scrollToBattles()">
+                    ENTER THE BATTLES →
+                </button>
+
+            </section>
+
+
+            <!-- STAT BAR -->
+            <section class="world-stats">
+
+                <div class="stat">
+                    <strong id="totalVotes">0</strong>
+                    <span>VOTES CAST</span>
+                </div>
+
+                <div class="stat">
+                    <strong id="battleCount">0</strong>
+                    <span>LIVE BATTLES</span>
+                </div>
+
+                <div class="stat">
+                    <strong>7</strong>
+                    <span>DAYS PER BATTLE</span>
+                </div>
+
+                <div class="stat">
+                    <strong>🌎</strong>
+                    <span>WORLDWIDE</span>
+                </div>
+
+            </section>
+
+
+            <!-- BATTLES -->
+            <section id="battlesSection" class="content-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <div class="eyebrow">THE DOCKET</div>
+                        <h2>LIVE BATTLES</h2>
+                    </div>
+
+                    <div class="live-indicator">
+                        <span></span> LIVE
+                    </div>
+
+                </div>
+
+
+                <div id="battleGrid" class="battle-grid"></div>
+
+            </section>
+
+        </section>
+
+
+        <!-- BATTLE PAGE -->
+        <section id="battlePage" class="page">
+
+            <button class="back-button" onclick="showPage('home')">
+                ← BACK TO BATTLES
+            </button>
+
+            <div id="battleDetails"></div>
+
+        </section>
+
+
+        <!-- ARCHIVE -->
+        <section id="archivePage" class="page">
+
+            <div class="archive-header">
+
+                <div class="eyebrow">THE RECORD</div>
+
+                <h1>VERDICT ARCHIVE</h1>
+
+                <p>
+                    Every completed battle becomes part of the permanent
+                    World Battle record.
+                </p>
+
+            </div>
+
+            <div class="archive-filters">
+
+                <button class="filter active">RECENT</button>
+                <button class="filter">MOST CONTESTED</button>
+                <button class="filter">MOST DECISIVE</button>
+
+            </div>
+
+            <div id="archiveList" class="archive-list"></div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section id="aboutPage" class="page">
+
+            <div class="court-page">
+
+                <div class="court-seal">⚖</div>
+
+                <div class="eyebrow">THE WORLD BATTLE COURT</div>
+
+                <h1>
+                    LET THE WORLD
+                    <span>DECIDE.</span>
+                </h1>
+
+                <p class="large-text">
+                    World Battle is a global platform where people gather
+                    around one question and choose between two sides.
+                </p>
+
+
+                <div class="rules-grid">
+
+                    <div class="rule-card">
+                        <div class="rule-number">01</div>
+                        <h3>A QUESTION</h3>
+                        <p>
+                            Every battle begins with a clear question
+                            that can be answered by two sides.
+                        </p>
+                    </div>
+
+                    <div class="rule-card">
+                        <div class="rule-number">02</div>
+                        <h3>THE PEOPLE</h3>
+                        <p>
+                            Anyone eligible to participate can cast
+                            their vote during the battle.
+                        </p>
+                    </div>
+
+                    <div class="rule-card">
+                        <div class="rule-number">03</div>
+                        <h3>SEVEN DAYS</h3>
+                        <p>
+                            The battle remains open for seven days.
+                            Then voting closes.
+                        </p>
+                    </div>
+
+                    <div class="rule-card">
+                        <div class="rule-number">04</div>
+                        <h3>THE VERDICT</h3>
+                        <p>
+                            The final public result becomes the
+                            official World Verdict.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="charter">
+
+                    <div class="eyebrow">PARTICIPANT CHARTER</div>
+
+                    <h2>THE RULES OF THE COURT</h2>
+
+                    <ul>
+                        <li>Every vote should represent a real person.</li>
+                        <li>Do not manipulate, threaten or harass other voters.</li>
+                        <li>Do not use bots or fraudulent accounts.</li>
+                        <li>Every participant may form their own opinion.</li>
+                        <li>The World Verdict represents the public vote, not absolute truth.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE MODAL -->
+        <div id="profileModal" class="modal hidden">
+
+            <div class="modal-card">
+
+                <button class="close-button" onclick="closeProfile()">×</button>
+
+                <div class="profile-avatar">●</div>
+
+                <h2>WORLD VOTER</h2>
+
+                <p class="muted">
+                    Your local prototype profile
+                </p>
+
+                <div class="profile-stat">
+                    <span>Votes cast</span>
+                    <strong id="profileVotes">0</strong>
+                </div>
+
+                <div class="profile-stat">
+                    <span>Battles participated</span>
+                    <strong id="profileBattles">0</strong>
+                </div>
+
+                <div class="profile-badge">
+                    ⚖ PARTICIPANT
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div>
+            <strong>WORLD BATTLE</strong>
+            <span>THE WORLD HAS SPOKEN.</span>
+        </div>
+
+        <div>
+            Prototype Edition • 2026
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+  </html>
