@@ -1,43 +1,20 @@
-/* =========================================================
-   WORLD BATTLE — MODERN GLOBAL COURT
-   ========================================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
-
-
-/* =========================================================
-   VARIABLES
-   ========================================================= */
 
 :root {
     --bg: #070a12;
-    --bg-2: #0b1020;
+    --bg2: #0d1322;
     --card: #111827;
-    --card-2: #151d2e;
-
+    --card2: #151e30;
     --text: #f7f8fc;
-    --muted: #8993a7;
-
+    --muted: #8c96aa;
     --gold: #f2c45c;
-    --gold-2: #ffe29a;
-
-    --blue: #4c9aff;
+    --gold2: #ffe39b;
+    --blue: #4d9cff;
     --red: #ff5570;
-
     --green: #55d98a;
-
-    --border: rgba(255, 255, 255, 0.08);
-
+    --border: rgba(255,255,255,.08);
     --radius: 18px;
-
-    --shadow:
-        0 20px 60px rgba(0, 0, 0, 0.35);
 }
-
-
-/* =========================================================
-   RESET
-   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -45,1481 +22,1038 @@
     padding: 0;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
     min-height: 100vh;
-
     color: var(--text);
-
-    font-family:
-        "DM Sans",
-        Arial,
-        sans-serif;
-
+    font-family: "DM Sans", Arial, sans-serif;
     background:
-        radial-gradient(
-            circle at 50% -20%,
-            rgba(76, 154, 255, 0.13),
-            transparent 38%
-        ),
-
-        radial-gradient(
-            circle at 90% 30%,
-            rgba(242, 196, 92, 0.07),
-            transparent 30%
-        ),
-
+        radial-gradient(circle at 50% -10%, rgba(76,154,255,.16), transparent 35%),
+        radial-gradient(circle at 90% 30%, rgba(242,196,92,.07), transparent 30%),
         var(--bg);
-
     overflow-x: hidden;
 }
-
 
 button {
     font-family: inherit;
 }
-
 
 button:disabled {
     cursor: not-allowed;
 }
 
 
-/* =========================================================
-   TOP NAVIGATION
-   ========================================================= */
+/* =========================
+   TOPBAR
+========================= */
 
 .topbar {
     height: 76px;
-
     padding: 0 5%;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     position: sticky;
     top: 0;
-
     z-index: 100;
-
-    background:
-        rgba(7, 10, 18, 0.82);
-
+    background: rgba(7,10,18,.86);
     backdrop-filter: blur(18px);
-
-    border-bottom:
-        1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
-
-
-/* BRAND */
 
 .brand {
     display: flex;
     align-items: center;
-
     gap: 12px;
-
     cursor: pointer;
 }
-
 
 .brand-mark {
     width: 42px;
     height: 42px;
-
     display: grid;
     place-items: center;
-
     border-radius: 12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold),
-            #b98528
-        );
-
+    background: linear-gradient(135deg,var(--gold),#b98628);
     color: #111;
-
     font-size: 22px;
-
-    box-shadow:
-        0 0 25px rgba(242, 196, 92, 0.18);
+    box-shadow: 0 0 25px rgba(242,196,92,.18);
 }
 
-
 .brand-name {
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
+    font-family: "Space Grotesk", sans-serif;
     font-size: 15px;
-
     font-weight: 800;
-
     letter-spacing: 1.5px;
 }
 
-
 .brand-tagline {
     margin-top: 2px;
-
     color: var(--gold);
-
     font-size: 8px;
-
     font-weight: 800;
-
     letter-spacing: 2px;
 }
 
-
-/* NAV */
-
 nav {
     display: flex;
-
     align-items: center;
-
     gap: 5px;
 }
 
-
 .nav-btn {
     padding: 9px 14px;
-
     border: none;
-
     border-radius: 9px;
-
     background: transparent;
-
     color: var(--muted);
-
     font-size: 12px;
-
     font-weight: 700;
-
     cursor: pointer;
-
-    transition: 0.2s;
+    transition: .2s;
 }
 
-
-.nav-btn:hover {
-    background: rgba(255,255,255,0.05);
-
-    color: var(--text);
-}
-
-
+.nav-btn:hover,
 .nav-btn.active {
-    background:
-        rgba(242, 196, 92, 0.1);
-
+    background: rgba(242,196,92,.1);
     color: var(--gold);
 }
-
-
-/* PROFILE */
 
 .profile-button {
     display: flex;
     align-items: center;
-
     gap: 7px;
-
     padding: 9px 14px;
-
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 10px;
-
-    background:
-        rgba(255,255,255,0.03);
-
+    background: rgba(255,255,255,.03);
     color: var(--text);
-
     font-size: 12px;
-
     font-weight: 700;
-
     cursor: pointer;
-
-    transition: 0.2s;
 }
-
-
-.profile-button:hover {
-    border-color:
-        rgba(242,196,92,0.4);
-
-    background:
-        rgba(242,196,92,0.06);
-}
-
 
 .profile-button span {
     color: var(--gold);
 }
 
 
-/* =========================================================
+/* =========================
    PAGE SYSTEM
-   ========================================================= */
+========================= */
 
 .page {
     display: none;
-
-    min-height:
-        calc(100vh - 76px);
+    min-height: calc(100vh - 76px);
 }
-
 
 .active-page {
     display: block;
 }
 
 
-/* =========================================================
+/* =========================
    HERO
-   ========================================================= */
+========================= */
 
 .hero {
     min-height: 570px;
-
-    padding:
-        90px 20px 100px;
-
+    padding: 90px 20px 100px;
     display: flex;
     flex-direction: column;
-
     align-items: center;
     justify-content: center;
-
     text-align: center;
-
     position: relative;
-
     overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at 50% 45%,
-            rgba(242,196,92,0.08),
-            transparent 42%
-        );
 }
 
-
-/* decorative circles */
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    width: 600px;
-    height: 600px;
-
-    border:
-        1px solid rgba(242,196,92,0.06);
-
-    border-radius: 50%;
-
-    pointer-events: none;
-}
-
-
+.hero::before,
 .hero::after {
     content: "";
-
     position: absolute;
-
-    width: 850px;
-    height: 850px;
-
-    border:
-        1px solid rgba(76,154,255,0.035);
-
     border-radius: 50%;
-
     pointer-events: none;
 }
 
+.hero::before {
+    width: 600px;
+    height: 600px;
+    border: 1px solid rgba(242,196,92,.07);
+}
 
-/* LIVE BADGE */
+.hero::after {
+    width: 850px;
+    height: 850px;
+    border: 1px solid rgba(76,154,255,.035);
+}
 
 .hero-badge {
     display: inline-flex;
-    align-items: center;
-
-    gap: 8px;
-
     padding: 8px 13px;
-
     margin-bottom: 28px;
-
-    border:
-        1px solid rgba(85,217,138,0.2);
-
+    border: 1px solid rgba(85,217,138,.2);
     border-radius: 100px;
-
-    background:
-        rgba(85,217,138,0.06);
-
+    background: rgba(85,217,138,.06);
     color: var(--green);
-
     font-size: 10px;
-
     font-weight: 800;
-
     letter-spacing: 1.4px;
-
     position: relative;
-
     z-index: 2;
 }
-
 
 .hero h1 {
     max-width: 1000px;
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size:
-        clamp(55px, 10vw, 115px);
-
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(55px,10vw,115px);
     font-weight: 900;
-
-    line-height: 0.88;
-
+    line-height: .88;
     letter-spacing: -5px;
-
     position: relative;
-
     z-index: 2;
 }
-
 
 .hero h1 span {
     display: block;
-
     color: var(--gold);
-
-    text-shadow:
-        0 0 45px rgba(242,196,92,0.12);
 }
-
 
 .hero p {
     max-width: 600px;
-
-    margin:
-        30px 0 30px;
-
+    margin: 30px 0;
     color: var(--muted);
-
     font-size: 16px;
-
     line-height: 1.7;
-
     position: relative;
-
     z-index: 2;
 }
 
-
-/* PRIMARY BUTTON */
-
 .primary-button {
-    padding:
-        15px 23px;
-
+    padding: 15px 23px;
     border: none;
-
     border-radius: 11px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold),
-            #c99636
-        );
-
+    background: linear-gradient(135deg,var(--gold),#c99636);
     color: #111;
-
     font-size: 12px;
-
     font-weight: 900;
-
-    letter-spacing: 0.8px;
-
+    letter-spacing: .8px;
     cursor: pointer;
-
-    box-shadow:
-        0 10px 30px rgba(242,196,92,0.14);
-
-    transition:
-        transform 0.2s,
-        box-shadow 0.2s;
+    box-shadow: 0 10px 30px rgba(242,196,92,.14);
+    transition: .2s;
 }
-
 
 .primary-button:hover {
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 15px 40px rgba(242,196,92,0.22);
+    transform: translateY(-3px);
 }
 
 
-/* =========================================================
-   GLOBAL STATS
-   ========================================================= */
+/* =========================
+   STATS
+========================= */
 
 .world-stats {
     max-width: 1100px;
-
-    margin:
-        -35px auto 0;
-
+    margin: -35px auto 0;
     position: relative;
-
     z-index: 10;
-
     display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    border:
-        1px solid var(--border);
-
+    grid-template-columns: repeat(4,1fr);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
-
-    background:
-        rgba(17,24,39,0.85);
-
+    background: rgba(17,24,39,.88);
     backdrop-filter: blur(15px);
-
-    box-shadow: var(--shadow);
-
     overflow: hidden;
 }
 
-
 .stat {
     padding: 23px;
-
     text-align: center;
-
-    border-right:
-        1px solid var(--border);
+    border-right: 1px solid var(--border);
 }
-
 
 .stat:last-child {
     border-right: none;
 }
 
-
 .stat strong {
     display: block;
-
     margin-bottom: 4px;
-
     color: var(--gold);
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
+    font-family: "Space Grotesk", sans-serif;
     font-size: 28px;
-
-    font-weight: 800;
 }
-
 
 .stat span {
     color: var(--muted);
-
     font-size: 9px;
-
     font-weight: 800;
-
     letter-spacing: 1.3px;
 }
 
 
-/* =========================================================
-   CONTENT SECTION
-   ========================================================= */
+/* =========================
+   BATTLES
+========================= */
 
 .content-section {
     max-width: 1200px;
-
     margin: auto;
-
-    padding:
-        90px 25px 110px;
+    padding: 90px 25px 110px;
 }
-
 
 .section-heading {
     display: flex;
-
     align-items: end;
-
     justify-content: space-between;
-
     margin-bottom: 30px;
 }
 
-
 .eyebrow {
     margin-bottom: 7px;
-
     color: var(--gold);
-
     font-size: 10px;
-
     font-weight: 900;
-
     letter-spacing: 2px;
 }
 
-
 .section-heading h2 {
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
+    font-family: "Space Grotesk", sans-serif;
     font-size: 42px;
-
     font-weight: 800;
-
     letter-spacing: -1.5px;
 }
 
-
 .live-indicator {
     display: flex;
-
     align-items: center;
-
     gap: 7px;
-
     padding: 8px 11px;
-
     border-radius: 100px;
-
-    background:
-        rgba(85,217,138,0.07);
-
+    background: rgba(85,217,138,.07);
     color: var(--green);
-
     font-size: 10px;
-
     font-weight: 800;
 }
-
 
 .live-indicator span {
     width: 7px;
     height: 7px;
-
     border-radius: 50%;
-
     background: var(--green);
-
-    box-shadow:
-        0 0 12px rgba(85,217,138,0.7);
+    box-shadow: 0 0 12px rgba(85,217,138,.7);
 }
-
-
-/* =========================================================
-   BATTLE GRID
-   ========================================================= */
 
 .battle-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    grid-template-columns: repeat(3,1fr);
     gap: 18px;
 }
 
-
-/* BATTLE CARD */
-
 .battle-card {
     padding: 23px;
-
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: var(--radius);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.045),
-            rgba(255,255,255,0.015)
-        ),
-        var(--card);
-
-    box-shadow:
-        0 12px 35px rgba(0,0,0,0.18);
-
+    background: linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015)),var(--card);
     cursor: pointer;
-
     position: relative;
-
     overflow: hidden;
-
-    transition:
-        transform 0.25s,
-        border-color 0.25s,
-        box-shadow 0.25s;
+    transition: .25s;
 }
-
 
 .battle-card::before {
     content: "";
-
     position: absolute;
-
     top: 0;
     left: 0;
-
     width: 100%;
     height: 3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--blue),
-            var(--gold),
-            var(--red)
-        );
+    background: linear-gradient(90deg,var(--blue),var(--gold),var(--red));
 }
-
 
 .battle-card:hover {
-    transform:
-        translateY(-7px);
-
-    border-color:
-        rgba(242,196,92,0.3);
-
-    box-shadow:
-        0 25px 55px rgba(0,0,0,0.35);
+    transform: translateY(-7px);
+    border-color: rgba(242,196,92,.3);
+    box-shadow: 0 25px 55px rgba(0,0,0,.35);
 }
-
 
 .card-top {
     display: flex;
-
-    align-items: center;
-
     justify-content: space-between;
-
     margin-bottom: 22px;
 }
-
 
 .category {
     color: var(--gold);
-
     font-size: 9px;
-
     font-weight: 900;
-
     letter-spacing: 1.5px;
 }
 
-
 .status {
     color: var(--green);
-
     font-size: 9px;
-
     font-weight: 800;
 }
-
 
 .battle-card h3 {
     min-height: 70px;
-
     margin-bottom: 22px;
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
+    font-family: "Space Grotesk", sans-serif;
     font-size: 23px;
-
-    font-weight: 700;
-
     line-height: 1.15;
-
-    letter-spacing: -0.5px;
 }
-
-
-/* SIDE PREVIEW */
 
 .sides-preview {
     display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
+    grid-template-columns: 1fr 1fr;
     gap: 7px;
 }
 
-
 .side-preview {
     padding: 13px 8px;
-
-    border:
-        1px solid rgba(255,255,255,0.06);
-
+    border: 1px solid rgba(255,255,255,.06);
     border-radius: 9px;
-
-    background:
-        rgba(255,255,255,0.025);
-
+    background: rgba(255,255,255,.025);
     text-align: center;
-
     font-size: 10px;
-
     font-weight: 800;
 }
 
-
 .side-preview:first-child {
-    border-top:
-        3px solid var(--blue);
-
-    color:
-        #9cc9ff;
+    border-top: 3px solid var(--blue);
+    color: #9cc9ff;
 }
-
 
 .side-preview:last-child {
-    border-top:
-        3px solid var(--red);
-
-    color:
-        #ff9aaa;
+    border-top: 3px solid var(--red);
+    color: #ff9aaa;
 }
-
 
 .card-footer {
     display: flex;
-
     justify-content: space-between;
-
-    align-items: center;
-
     margin-top: 20px;
-
     padding-top: 15px;
-
-    border-top:
-        1px solid rgba(255,255,255,0.06);
-
+    border-top: 1px solid rgba(255,255,255,.06);
     color: var(--muted);
-
     font-size: 10px;
-
-    font-weight: 600;
 }
-
 
 .card-footer span:last-child {
     color: var(--gold);
-
-    font-weight: 800;
 }
 
 
-/* =========================================================
+/* =========================
    BATTLE PAGE
-   ========================================================= */
+========================= */
 
 .back-button {
-    margin:
-        28px 5%;
-
+    margin: 28px 5%;
     padding: 9px 13px;
-
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 9px;
-
-    background:
-        rgba(255,255,255,0.025);
-
+    background: rgba(255,255,255,.025);
     color: var(--muted);
-
     font-size: 11px;
-
     font-weight: 800;
-
     cursor: pointer;
-
-    transition: 0.2s;
 }
-
-
-.back-button:hover {
-    color: var(--gold);
-
-    border-color:
-        rgba(242,196,92,0.3);
-}
-
 
 .battle-container {
     max-width: 1000px;
-
-    margin:
-        25px auto 100px;
-
+    margin: 25px auto 100px;
     padding: 20px;
 }
-
 
 .battle-container > header {
     text-align: center;
-
     margin-bottom: 45px;
 }
 
-
 .battle-container h1 {
     max-width: 900px;
-
     margin: auto;
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size:
-        clamp(38px, 6vw, 72px);
-
-    font-weight: 900;
-
-    line-height: 0.98;
-
+    font-family: "Space Grotesk",sans-serif;
+    font-size: clamp(38px,6vw,72px);
+    line-height: .98;
     letter-spacing: -3px;
 }
 
-
 .battle-meta {
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
-
     gap: 9px;
-
     margin-top: 22px;
 }
 
-
 .battle-meta span {
     padding: 7px 10px;
-
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 100px;
-
     color: var(--muted);
-
     font-size: 9px;
-
     font-weight: 800;
-
-    letter-spacing: 0.5px;
 }
-
-
-/* =========================================================
-   COUNTDOWN
-   ========================================================= */
 
 .countdown {
     max-width: 430px;
-
-    margin:
-        30px auto 38px;
-
+    margin: 30px auto 38px;
     padding: 20px;
-
-    border:
-        1px solid rgba(242,196,92,0.16);
-
+    border: 1px solid rgba(242,196,92,.16);
     border-radius: var(--radius);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(242,196,92,0.07),
-            transparent 70%
-        );
-
+    background: rgba(242,196,92,.04);
     text-align: center;
 }
 
-
 .countdown strong {
     display: block;
-
     margin-top: 5px;
-
     color: var(--gold);
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
+    font-family: "Space Grotesk",sans-serif;
     font-size: 30px;
-
-    font-weight: 800;
 }
-
-
-/* =========================================================
-   VOTE SIDES
-   ========================================================= */
 
 .vote-grid {
     display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
+    grid-template-columns: 1fr 1fr;
     gap: 15px;
 }
 
-
 .vote-side {
     min-height: 290px;
-
     padding: 30px;
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: space-between;
-
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: var(--radius);
-
-    background:
-        var(--card);
-
-    position: relative;
-
+    background: var(--card);
     overflow: hidden;
-
-    transition:
-        transform 0.2s,
-        border-color 0.2s;
 }
 
-
-.vote-side::after {
-    content: "";
-
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    border-radius: 50%;
-
-    filter: blur(60px);
-
-    opacity: 0.12;
-
-    pointer-events: none;
+.vote-side.side-a {
+    box-shadow: inset 0 0 80px rgba(76,154,255,.04);
 }
 
-
-.vote-side.side-a::after {
-    background: var(--blue);
-
-    right: -80px;
-    bottom: -80px;
+.vote-side.side-b {
+    box-shadow: inset 0 0 80px rgba(255,85,112,.04);
 }
-
-
-.vote-side.side-b::after {
-    background: var(--red);
-
-    left: -80px;
-    bottom: -80px;
-}
-
-
-.vote-side:hover {
-    transform:
-        translateY(-5px);
-}
-
-
-.vote-side.side-a:hover {
-    border-color:
-        rgba(76,154,255,0.5);
-}
-
-
-.vote-side.side-b:hover {
-    border-color:
-        rgba(255,85,112,0.5);
-}
-
 
 .side-label {
     color: var(--muted);
-
     font-size: 9px;
-
     font-weight: 900;
-
     letter-spacing: 2px;
 }
 
-
 .vote-side h2 {
-    margin:
-        30px 0;
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size:
-        clamp(32px, 5vw, 52px);
-
-    font-weight: 900;
-
-    letter-spacing: -2px;
+    margin: 30px 0;
+    font-family: "Space Grotesk",sans-serif;
+    font-size: clamp(32px,5vw,52px);
 }
-
 
 .side-a h2 {
     color: #9cc9ff;
 }
 
-
 .side-b h2 {
     color: #ff9aaa;
 }
 
-
 .vote-button {
     width: 100%;
-
     padding: 15px;
-
     border: none;
-
     border-radius: 10px;
-
     color: white;
-
     font-size: 11px;
-
     font-weight: 900;
-
-    letter-spacing: 0.5px;
-
     cursor: pointer;
-
-    transition:
-        transform 0.2s,
-        filter 0.2s;
 }
-
-
-.vote-button:hover:not(:disabled) {
-    transform:
-        translateY(-2px);
-
-    filter: brightness(1.1);
-}
-
 
 .side-a .vote-button {
-    background:
-        linear-gradient(
-            135deg,
-            #397ed1,
-            #2460aa
-        );
+    background: linear-gradient(135deg,#397ed1,#2460aa);
 }
-
 
 .side-b .vote-button {
-    background:
-        linear-gradient(
-            135deg,
-            #df4b64,
-            #b9364e
-        );
+    background: linear-gradient(135deg,#df4b64,#b9364e);
 }
 
 
-.vote-button:disabled {
-    opacity: 0.7;
-}
-
-
-/* =========================================================
+/* =========================
    RESULTS
-   ========================================================= */
+========================= */
 
 .results-box {
     margin-top: 25px;
-
     padding: 25px;
-
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: var(--radius);
-
-    background:
-        var(--card);
+    background: var(--card);
 }
-
 
 .results-title {
     display: flex;
-
     justify-content: space-between;
-
     margin-bottom: 14px;
-
     font-size: 12px;
 }
-
 
 .results-title span {
     color: var(--muted);
 }
 
-
 .results-bar {
     display: flex;
-
     height: 16px;
-
     margin: 12px 0;
-
     border-radius: 100px;
-
     overflow: hidden;
-
-    background:
-        rgba(255,255,255,0.04);
+    background: rgba(255,255,255,.04);
 }
-
 
 .result-a {
-    background:
-        linear-gradient(
-            90deg,
-            #2460aa,
-            var(--blue)
-        );
-
-    transition:
-        width 0.5s;
+    background: var(--blue);
 }
-
 
 .result-b {
-    background:
-        linear-gradient(
-            90deg,
-            var(--red),
-            #b9364e
-        );
-
-    transition:
-        width 0.5s;
+    background: var(--red);
 }
-
 
 .result-percent {
     display: flex;
-
     justify-content: space-between;
-
     color: var(--muted);
-
     font-size: 11px;
-
     font-weight: 700;
 }
 
 
-/* =========================================================
+/* =========================
    VERDICT
-   ========================================================= */
+========================= */
 
 .verdict {
     margin-top: 25px;
-
     padding: 40px 25px;
-
-    border:
-        1px solid rgba(242,196,92,0.35);
-
+    border: 1px solid rgba(242,196,92,.35);
     border-radius: var(--radius);
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(242,196,92,0.11),
-            transparent 65%
-        );
-
+    background: radial-gradient(circle,rgba(242,196,92,.11),transparent 65%);
     text-align: center;
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,0.2);
 }
-
 
 .verdict-label {
     color: var(--gold);
-
     font-size: 9px;
-
     font-weight: 900;
-
     letter-spacing: 2px;
 }
 
-
 .verdict h2 {
-    margin:
-        10px 0;
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size:
-        clamp(40px, 7vw, 65px);
-
-    font-weight: 900;
-
+    margin: 10px 0;
+    font-family: "Space Grotesk",sans-serif;
+    font-size: clamp(40px,7vw,65px);
     letter-spacing: -3px;
-
-    color: var(--text);
 }
-
 
 .verdict p {
     color: var(--muted);
-
     font-size: 12px;
 }
 
 
-/* =========================================================
+/* =========================
    ARCHIVE
-   ========================================================= */
+========================= */
 
 .archive-header {
     max-width: 1000px;
-
     margin: auto;
-
-    padding:
-        90px 25px 40px;
+    padding: 90px 25px 40px;
 }
 
-
-.archive-header h1 {
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size:
-        clamp(48px, 8vw, 80px);
-
-    font-weight: 900;
-
+.archive-header h1,
+.court-page h1 {
+    font-family: "Space Grotesk",sans-serif;
+    font-size: clamp(48px,8vw,80px);
+    line-height: .95;
     letter-spacing: -4px;
 }
 
-
 .archive-header p {
     max-width: 600px;
-
     margin-top: 14px;
-
     color: var(--muted);
-
     line-height: 1.6;
 }
 
-
 .archive-filters {
     max-width: 1000px;
-
     margin: auto;
-
-    padding:
-        0 25px 25px;
-
+    padding: 0 25px 25px;
     display: flex;
-
     gap: 8px;
-
     overflow-x: auto;
 }
 
-
 .filter {
     white-space: nowrap;
-
     padding: 9px 13px;
-
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 100px;
-
-    background:
-        rgba(255,255,255,0.025);
-
+    background: rgba(255,255,255,.025);
     color: var(--muted);
-
     font-size: 9px;
-
     font-weight: 800;
-
     cursor: pointer;
 }
 
-
 .filter.active {
-    border-color:
-        rgba(242,196,92,0.4);
-
-    background:
-        rgba(242,196,92,0.08);
-
+    border-color: rgba(242,196,92,.4);
+    background: rgba(242,196,92,.08);
     color: var(--gold);
 }
-
 
 .archive-list {
     max-width: 1000px;
-
     margin: auto;
-
-    padding:
-        0 25px 100px;
+    padding: 0 25px 100px;
 }
-
 
 .archive-item {
     display: grid;
-
-    grid-template-columns:
-        1fr auto;
-
+    grid-template-columns: 1fr auto;
     gap: 25px;
-
     padding: 22px;
-
     margin-bottom: 9px;
-
-    border:
-        1px solid var(--border);
-
+    border: 1px solid var(--border);
     border-radius: 14px;
-
-    background:
-        var(--card);
-
-    transition: 0.2s;
+    background: var(--card);
 }
-
-
-.archive-item:hover {
-    border-color:
-        rgba(242,196,92,0.25);
-
-    transform:
-        translateX(3px);
-}
-
 
 .archive-item h3 {
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
+    font-family: "Space Grotesk",sans-serif;
     font-size: 19px;
 }
 
-
 .archive-result {
     color: var(--gold);
-
     text-align: right;
-
     font-size: 13px;
+    font-weight: 900;
+}
 
+.archive-result small {
+    display: block;
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+
+/* =========================
+   THE COURT
+========================= */
+
+.court-page {
+    max-width: 1050px;
+    margin: auto;
+    padding: 90px 25px 110px;
+    text-align: center;
+}
+
+.court-seal {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 30px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(242,196,92,.4);
+    border-radius: 50%;
+    color: var(--gold);
+    font-size: 38px;
+    background: rgba(242,196,92,.05);
+    box-shadow: 0 0 50px rgba(242,196,92,.08);
+}
+
+.court-page h1 span {
+    color: var(--gold);
+}
+
+.large-text {
+    max-width: 700px;
+    margin: 25px auto 60px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
+    text-align: left;
+}
+
+.rule-card {
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--card);
+}
+
+.rule-number {
+    margin-bottom: 18px;
+    color: var(--gold);
+    font-family: "Space Grotesk",sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.rule-card h3 {
+    margin-bottom: 10px;
+    font-family: "Space Grotesk",sans-serif;
+}
+
+.rule-card p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.charter {
+    margin-top: 30px;
+    padding: 35px;
+    border: 1px solid rgba(242,196,92,.18);
+    border-radius: var(--radius);
+    background: rgba(242,196,92,.035);
+    text-align: left;
+}
+
+.charter h2 {
+    margin: 8px 0 20px;
+    font-family: "Space Grotesk",sans-serif;
+}
+
+.charter li {
+    margin: 12px 0 0 20px;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+
+/* =========================
+   PROFILE MODAL
+========================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(0,0,0,.7);
+    backdrop-filter: blur(10px);
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-card {
+    width: min(430px,100%);
+    padding: 35px;
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: var(--card2);
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    border: none;
+    background: none;
+    color: var(--muted);
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.profile-avatar {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 18px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(242,196,92,.1);
+    color: var(--gold);
+    font-size: 25px;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.profile-stat {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--muted);
+}
+
+.profile-stat strong {
+    color: var(--gold);
+}
+
+.profile-badge {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(242,196,92,.08);
+    color: var(--gold);
+    font-size: 10px;
     font-weight: 900;
 }
 
 
-.archive-result small {
-    display: block;
+/* =========================
+   FOOTER
+========================= */
 
-    margin-top: 5px;
-
+footer {
+    padding: 35px 5%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 1px solid var(--border);
+    background: #05070d;
     color: var(--muted);
+    font-size: 11px;
+}
 
-    font-size: 10px;
+footer strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text);
+    font-family: "Space Grotesk",sans-serif;
+}
 
-    font-weight: 500;
+footer span {
+    color: var(--gold);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
 }
 
 
-/* =========================================================
-   THE COURT
-   ========================
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 850px) {
+
+    .topbar {
+        height: auto;
+        min-height: 70px;
+        padding: 12px 4%;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .profile-button {
+        margin-left: auto;
+    }
+
+    .battle-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .world-stats {
+        margin: -25px 15px 0;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .brand-name {
+        font-size: 13px;
+    }
+
+    .brand-tagline {
+        font-size: 7px;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 70px 18px;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px,16vw,75px);
+        letter-spacing: -3px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .world-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat {
+        padding: 17px 8px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .stat:nth-child(2) {
+        border-right: none;
+    }
+
+    .battle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .vote-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .archive-item {
+        grid-template-columns: 1fr;
+    }
+
+    .archive-result {
+        text-align: left;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}
